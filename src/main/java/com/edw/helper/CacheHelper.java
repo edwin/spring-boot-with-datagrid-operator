@@ -39,7 +39,7 @@ public class CacheHelper {
                         "</distributed-cache>")
         );
         for (int i = 0; i < 50; i++) {
-            cacheWithoutPersistence.put(i, UUID.randomUUID().toString());
+            cacheWithoutPersistence.put("key"+i, UUID.randomUUID().toString());
         }
 
         // build cache with persistence
@@ -55,7 +55,7 @@ public class CacheHelper {
                         "</distributed-cache>")
         );
         for (int i = 0; i < 50; i++) {
-            cacheWithPersistence.put(i, UUID.randomUUID().toString());
+            cacheWithPersistence.put("key"+i, UUID.randomUUID().toString());
         }
     }
 
@@ -63,7 +63,7 @@ public class CacheHelper {
         RemoteCache<String, String> cache = cacheManager.getCache("cache-without-persistence");
 
         HashMap hashMap = new HashMap();
-        for (String key : cache.keySet()) {
+        for (Object key : cache.keySet()) {
             hashMap.put(key, cache.get(key));
         }
         return hashMap;
@@ -73,7 +73,7 @@ public class CacheHelper {
         RemoteCache<String, String> cache = cacheManager.getCache("cache-with-persistence");
 
         HashMap hashMap = new HashMap();
-        for (String key : cache.keySet()) {
+        for (Object key : cache.keySet()) {
             hashMap.put(key, cache.get(key));
         }
         return hashMap;
