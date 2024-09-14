@@ -34,7 +34,7 @@ public class CacheHelper {
     public void populate() {
         // build cache without persistence
         RemoteCache cacheWithoutPersistence = cacheManager.administration().getOrCreateCache("cache-without-persistence",
-                new XMLStringConfiguration("<distributed-cache name=\"cache-without-persistence\" mode=\"ASYNC\">\n" +
+                new XMLStringConfiguration("<distributed-cache name=\"cache-without-persistence\" mode=\"ASYNC\" statistics=\"true\">\n" +
                         "\t<encoding media-type=\"application/x-jboss-marshalling\" />\n" +
                         "</distributed-cache>")
         );
@@ -44,7 +44,7 @@ public class CacheHelper {
 
         // build cache with persistence
         RemoteCache cacheWithPersistence = cacheManager.administration().getOrCreateCache("cache-with-persistence",
-                new XMLStringConfiguration("<distributed-cache name=\"cache-with-persistence\" mode=\"ASYNC\">\n" +
+                new XMLStringConfiguration("<distributed-cache name=\"cache-with-persistence\" mode=\"ASYNC\" statistics=\"true\">\n" +
                         "\t<encoding media-type=\"application/x-jboss-marshalling\" />\n" +
                         "\t<persistence passivation=\"false\">\n" +
                         "\t\t<file-store>\n" +
