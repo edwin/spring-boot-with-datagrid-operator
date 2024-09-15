@@ -21,3 +21,9 @@ $ curl -kv https://app:8080/cache-without-persistence
 ```
 $ curl -kv https://app:8080/cache-with-persistence
 ```
+
+## Blog Post
+Write-ups for this code can be found here,
+```
+https://edwin.baculsoft.com/2024/09/deploying-red-hat-datagrid-8-using-operator-to-openshift-4-and-setting-up-a-persistent-cache/
+```
